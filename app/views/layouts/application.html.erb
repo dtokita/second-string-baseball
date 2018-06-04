@@ -8,7 +8,47 @@
 </head>
 <body>
 
+<div class="ui massive inverted top fixed menu">
+  <div class="item">
+    <%= image_tag "SecondString.PNG" %>
+  </div>
+  <a class="item">Welcome</a>
+
+  <div class="ui simple dropdown item">
+    Roster
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">Summer 2018</div>
+    </div>
+  </div>
+
+  <div class="ui simple dropdown item">
+    Statistics
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item">Individual Career</a>
+      <a class="item">Team Record</a>
+      <a class="item">Season Leaders</a>
+      <a class="item">All-Time Leaders</a> 
+    </div>
+  </div>
+
+  <div class="ui simple dropdown item">
+    Gallery
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item">Instagram</a>
+      <a class="item">Photos</a>
+    </div>
+  </div>
+</div>
+
 <%= yield %>
+
+<div class="ui massive inverted bottom fixed menu">
+  <a class="item"><i class="instagram icon"></i>Follow us on Instagram!</a>
+  <p class="right aligned item">Made by Dylan Tokita</p>
+</div>
 
 </body>
 </html>
