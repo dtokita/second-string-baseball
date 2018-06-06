@@ -1,0 +1,467 @@
+<div class="ui container" style="padding: 20px;">
+  <h1>2nd String All-Time Leaders</h1>
+
+  <div class="ui grid">
+    <div class="four wide column">
+      <h2>Batting Average</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@batting_avgs[i][1]).id %>"><%= Player.find(@batting_avgs[i][1]).name %></a></td>
+              <td><%= '%1.3f' % @batting_avgs[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>On-Base Percentage</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@obps[i][1]).id %>"><%= Player.find(@obps[i][1]).name %></a></td>
+              <td><%= '%1.3f' % @obps[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Slugging Percentage</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@slugging_pcts[i][1]).id %>"><%= Player.find(@slugging_pcts[i][1]).name %></a></td>
+              <td><%= '%1.3f' % @slugging_pcts[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>OPS</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@opss[i][1]).id %>"><%= Player.find(@opss[i][1]).name %></a></td>
+              <td><%= '%1.3f' % @opss[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Hits</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@hits[i][1]).id %>"><%= Player.find(@hits[i][1]).name %></a></td>
+              <td><%= @hits[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Runs</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@runs[i][1]).id %>"><%= Player.find(@runs[i][1]).name %></a></td>
+              <td><%= @runs[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>RBIs</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@rbis[i][1]).id %>"><%= Player.find(@rbis[i][1]).name %></a></td>
+              <td><%= @rbis[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Walks</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@walks[i][1]).id %>"><%= Player.find(@walks[i][1]).name %></a></td>
+              <td><%= @walks[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Singles</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@singles[i][1]).id %>"><%= Player.find(@singles[i][1]).name %></a></td>
+              <td><%= @singles[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Doubles</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@doubles[i][1]).id %>"><%= Player.find(@doubles[i][1]).name %></a></td>
+              <td><%= @doubles[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Triples</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@triples[i][1]).id %>"><%= Player.find(@triples[i][1]).name %></a></td>
+              <td><%= @triples[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Homeruns</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@homeruns[i][1]).id %>"><%= Player.find(@homeruns[i][1]).name %></a></td>
+              <td><%= @homeruns[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Stolen Bases</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@steals[i][1]).id %>"><%= Player.find(@steals[i][1]).name %></a></td>
+              <td><%= @steals[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Caught Stealing</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@caught_stealings[i][1]).id %>"><%= Player.find(@caught_stealings[i][1]).name %></a></td>
+              <td><%= @caught_stealings[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Strikeouts</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@strikeouts[i][1]).id %>"><%= Player.find(@strikeouts[i][1]).name %></a></td>
+              <td><%= @strikeouts[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Games Played</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@games_played[i][1]).id %>"><%= Player.find(@games_played[i][1]).name %></a></td>
+              <td><%= @games_played[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Innings Pitched</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@ips[i][1]).id %>"><%= Player.find(@ips[i][1]).name %></a></td>
+              <td><%= @ips[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>Pitching Strikeouts</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@p_strikeouts[i][1]).id %>"><%= Player.find(@p_strikeouts[i][1]).name %></a></td>
+              <td><%= @p_strikeouts[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>ERA</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@era[i][1]).id %>"><%= Player.find(@era[i][1]).name %></a></td>
+              <td><%= @era[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="four wide column">
+      <h2>WHIP</h2>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for i in 0..2 %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><a href="/statistics/player?player_id=<%= Player.find(@whip[i][1]).id %>"><%= Player.find(@whip[i][1]).name %></a></td>
+              <td><%= @whip[i][0] %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>

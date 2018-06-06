@@ -1,0 +1,55 @@
+</br>
+
+<div class="ui container">
+  <form class="ui form">
+    <div class="fields">
+      <div class="field">
+        <label>Jersey Number:</label>
+        <input type="text" name="jersey_number">
+      </div>
+
+      <div class="field">
+        <label>Player Name:</label>
+        <div class="ui search selection dropdown">
+          <input type="hidden" name="player_name">
+          <i class="dropdown icon"></i>
+          <div class="default text">Player Name</div>
+          <div class="menu">
+            <% Player.order(:name).each do |player| %>
+              <div class="item" data-value="<%= player.name %>"><%= player.name %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Throws:</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="throws">
+          <i class="dropdown icon"></i>
+          <div class="default text">Throws</div>
+          <div class="menu">
+            <div class="item" data-value="Left">Left</div>
+            <div class="item" data-value="Right">Right</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Bats:</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="bats">
+          <i class="dropdown icon"></i>
+          <div class="default text">Bats</div>
+          <div class="menu">
+            <div class="item" data-value="Left">Left</div>
+            <div class="item" data-value="Right">Right</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="ui primary button" type="submit">Submit</button>
+  </form>
+</div>

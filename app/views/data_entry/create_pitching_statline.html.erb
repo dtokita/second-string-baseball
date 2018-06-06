@@ -1,0 +1,92 @@
+</br>
+
+<div class="ui container">
+  <form class="ui form">
+    <div class="fields">
+
+      <div class="field">
+        <label>Player Name:</label>
+        <div class="ui search selection dropdown">
+          <input type="hidden" name="player_id">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select a player</div>
+
+          <div class="menu">
+            <% Player.order(:name).each do |player| %>
+              <div class="item" data-value="<%= player.id %>"><%= player.name %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Game:</label>
+        <div class="ui search selection dropdown">
+          <input type="hidden" name="game_id">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select a game</div>
+
+          <div class="menu">
+            <% Game.order(:date_of_game).each do |game| %>
+              <div class="item" data-value="<%= game.id %>"><%= game.away_name %> @ <%= game.home_name %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fields">
+
+      <div class="field">
+        <label>Innings Pitched:</label>
+        <input type="number" name="ips">
+      </div>
+
+      <div class="field">
+        <label>Hits:</label>
+        <input type="number" name="hits">
+      </div>
+
+      <div class="field">
+        <label>Earned Runs:</label>
+        <input type="number" name="ers">
+      </div>
+
+      <div class="field">
+        <label>Runs:</label>
+        <input type="number" name="runs">
+      </div>
+
+      <div class="field">
+        <label>Strikeouts:</label>
+        <input type="number" name="strikeouts">
+      </div>
+
+    </div>
+
+    <div class="inline field">
+      <div class="ui toggle checkbox">
+        <label>Win</label>
+        <input type="checkbox" tabindex="0" class="hidden" name="win">
+      </div>
+    </div>
+
+    <div class="inline field">
+      <div class="ui toggle checkbox">
+        <label>Loss</label>
+        <input type="checkbox" tabindex="0" class="hidden" name="loss">
+      </div>
+    </div>
+
+    <div class="inline field">
+      <div class="ui toggle checkbox">
+        <label>Save</label>
+        <input type="checkbox" tabindex="0" class="hidden" name="save">
+      </div>
+    </div>
+
+    <button class="ui primary button" type="submit">Submit</button>
+  </form>
+</div>
+

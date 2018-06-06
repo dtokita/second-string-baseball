@@ -3,6 +3,28 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'roster/index'
+
+  get 'data_entry/index'
+  get 'data_entry/create_player'
+  get 'data_entry/edit_player'
+  get 'data_entry/create_game'
+  get 'data_entry/edit_game'
+  get 'data_entry/create_offensive_statline'
+  get 'data_entry/edit_offensive_statline'
+  get 'data_entry/create_pitching_statline'
+  get 'data_entry/edit_pitching_statline'
+ 
+  get 'statistics/index'
+  get 'statistics/game'
+  get 'statistics/player'
+  get 'statistics/season_leaders'
+  get 'statistics/all_time_leaders'
+
+  get 'gallery/index'
+  get 'gallery/instagram'
+  get 'gallery/photos'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

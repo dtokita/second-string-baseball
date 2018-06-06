@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require semantic-ui
 //= require_tree .
+
+$(document).ready( function() {
+  $('.dropdown').dropdown();
+  $('.checkbox').checkbox();
+});
+
+

@@ -1,0 +1,168 @@
+
+<% if params[:player_id] != nil  %>
+  
+<div class="ui container" style="padding: 20px;">
+  <h1>Career Stats for <%= @player.name %></h1>
+
+  <div class="ui container" style="padding: 20px;">
+    <h2>Career Batting Statistics</h2>
+    <% if @off_statlines.first != nil %>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>AB</th>
+            <th>R</th>
+            <th>H</th>
+            <th>RBI</th>
+            <th>BB</th>
+            <th>SO</th>
+            <th>AVG</th>
+            <th>OBP</th>
+            <th>SLG</th>
+            <th>OPS</th>
+            <th>SB</th>
+            <th>CS</th>
+            <th>1B</th>
+            <th>2B</th>
+            <th>3B</th>
+            <th>HR</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @off_statlines.order(:id).each do |statline| %>
+            <tr>
+              <td><%= Game.find(statline.game_id).away_name %> @ <%= Game.find(statline.game_id).home_name %></td>
+              <td><%= statline.at_bats %></td>
+              <td><%= statline.runs %></td>
+              <td><%= statline.hits %></td>
+              <td><%= statline.rbis %></td>
+              <td><%= statline.walks %></td>
+              <td><%= statline.strikeouts %></td>
+              <td><%= '%1.3f' % (statline.hits.to_f / statline.at_bats.to_f) %></td>
+              <td><%= '%1.3f' % ((statline.hits.to_f + statline.walks.to_f) / statline.pas.to_f) %></td>
+              <td><%= '%1.3f' % ( (statline.singles.to_f + (statline.doubles.to_f * 2.0) + (statline.triples.to_f * 3.0) + (statline.homeruns.to_f * 4.0) ) / statline.at_bats.to_f) %></td>
+              <td><%= '%1.3f' % ((((statline.hits.to_f + statline.walks.to_f) / statline.pas.to_f)) + (((statline.singles.to_f + (statline.doubles.to_f * 2.0) + (statline.triples.to_f * 3.0) + (statline.homeruns.to_f * 4.0)) / statline.at_bats.to_f))) %></td>
+              <td><%= statline.stolen_bases %></td>
+              <td><%= statline.caught_stealings %></td>
+              <td><%= statline.singles %></td>
+              <td><%= statline.doubles %></td>
+              <td><%= statline.triples %></td>
+              <td><%= statline.homeruns %></td>
+            </tr>
+          <% end %>
+
+            <tr>
+              <th>Total</th>
+              <td><%= @off_statlines.sum(:at_bats) %></td>
+              <td><%= @off_statlines.sum(:runs) %></td>
+              <td><%= @off_statlines.sum(:hits) %></td>
+              <td><%= @off_statlines.sum(:rbis) %></td>
+              <td><%= @off_statlines.sum(:walks) %></td>
+              <td><%= @off_statlines.sum(:strikeouts) %></td>
+              <td><%= '%1.3f' % (@off_statlines.sum(:hits).to_f / @off_statlines.sum(:at_bats).to_f) %></td>
+              <td><%= '%1.3f' % ((@off_statlines.sum(:hits).to_f + @off_statlines.sum(:walks).to_f) / @off_statlines.sum(:pas).to_f) %></td>\
+              <td><%= '%1.3f' % ((@off_statlines.sum(:singles).to_f + (@off_statlines.sum(:doubles).to_f * 2.0) + (@off_statlines.sum(:triples).to_f * 3.0) + (@off_statlines.sum(:homeruns) * 4.0) ) / @off_statlines.sum(:at_bats).to_f) %></td>
+              <td><%= '%1.3f' % ((((@off_statlines.sum(:hits).to_f + @off_statlines.sum(:walks).to_f) / @off_statlines.sum(:pas).to_f)) + (((@off_statlines.sum(:singles).to_f + (@off_statlines.sum(:doubles).to_f * 2.0) + (@off_statlines.sum(:triples).to_f * 3.0) + (@off_statlines.sum(:homeruns).to_f * 4.0)) / @off_statlines.sum(:at_bats).to_f))) %></td>
+              <td><%= @off_statlines.sum(:stolen_bases) %></td>
+              <td><%= @off_statlines.sum(:caught_stealings) %></td>
+              <td><%= @off_statlines.sum(:singles) %></td>
+              <td><%= @off_statlines.sum(:doubles) %></td>
+              <td><%= @off_statlines.sum(:triples) %></td>
+              <td><%= @off_statlines.sum(:homeruns) %></td>
+            </tr>
+        </tbody>
+      </table>
+    <% else %>
+      <h5>No Batting Statistics yet...</h5>
+    <% end %>
+  </div> 
+
+  <div class="ui container" style="padding: 20px;">
+    <h2>Career Pitching Statistics</h2>
+    <% if @pit_statlines.first != nil %>
+      <table class="ui compact table">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>IP</th>
+            <th>H</th>
+            <th>R</th>
+            <th>ER</th>
+            <th>BB</th>
+            <th>SO</th>
+            <th>ERA</th>
+            <th>R/9</th>
+            <th>H/9</th>
+            <th>BB/9</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pit_statlines.order(:id).each do |statline| %>
+            <tr>
+              <td><%= Game.find(statline.game_id).away_name %> @ <%= Game.find(statline.game_id).home_name %></td>
+              <td><%= '%1.1f' % statline.ips %></td>
+              <td><%= statline.hits %></td>
+              <td><%= statline.runs %></td>
+              <td><%= statline.ers %></td>
+              <td><%= statline.walks %></td>
+              <td><%= statline.strikeouts %></td>
+              <td><%= '%1.2f' % ((statline.ers.to_f * 9.0) / statline.ips.to_f) %></td>
+              <td><%= '%1.2f' % ((statline.runs.to_f * 9.0) / statline.ips.to_f) %></td>
+              <td><%= '%1.2f' % ((statline.hits.to_f * 9.0) / statline.ips.to_f) %></td>
+              <td><%= '%1.2f' % ((statline.walks.to_f * 9.0) / statline.ips.to_f) %></td>
+            </tr>
+          <% end %>
+
+            <tr>
+              <th>Total</th>
+              <td><%= '%1.1f' % @pit_statlines.sum(:ips) %></td>
+              <td><%= @pit_statlines.sum(:hits) %></td>
+              <td><%= @pit_statlines.sum(:runs) %></td>
+              <td><%= @pit_statlines.sum(:ers) %></td>
+              <td><%= @pit_statlines.sum(:walks) %></td>
+              <td><%= @pit_statlines.sum(:strikeouts) %></td>
+              <td><%= '%1.2f' % ((@pit_statlines.sum(:ers).to_f * 9.0) / @pit_statlines.sum(:ips).to_f) %></td>
+              <td><%= '%1.2f' % ((@pit_statlines.sum(:runs).to_f * 9.0) / @pit_statlines.sum(:ips).to_f) %></td>
+              <td><%= '%1.2f' % ((@pit_statlines.sum(:hits).to_f * 9.0) / @pit_statlines.sum(:ips).to_f) %></td>
+              <td><%= '%1.2f' % ((@pit_statlines.sum(:walks).to_f * 9.0) / @pit_statlines.sum(:ips).to_f) %></td>
+            </tr>
+        </tbody>
+      </table>
+
+    <% else %>
+      <h5>No Pitching Statistics yet...</h5>
+    <% end %>
+  </div>
+</div>
+
+<% else %>
+
+<div class="ui container" style="padding: 20px;">
+  <h1>Select a player to view career stats for:</h1>
+
+  <form class="ui form">
+
+    <div class="field">
+      <label>Player Name:</label>
+      <div class="ui search selection dropdown">
+        <input type="hidden" name="player_id">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select a player</div>
+
+        <div class="menu">
+          <% Player.order(:name).each do |player| %>
+            <div class="item" data-value="<%= player.id %>"><%= player.name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <button class="ui primary button" type="submit">Get Stats</button>
+
+  </form>
+</div>
+
+<% end %>
