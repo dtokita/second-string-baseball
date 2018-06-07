@@ -10,5 +10,5 @@ CREATE TABLE pitching_statlines (
   strikeouts int DEFAULT 0,
   win boolean DEFAULT false,
   loss boolean DEFAULT false,
-  save boolean DEFAULT false
+  save_gave boolean DEFAULT false
 );

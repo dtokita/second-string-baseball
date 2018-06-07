@@ -432,7 +432,7 @@
             <tr>
               <td><%= i + 1 %></td>
               <td><a href="/statistics/player?player_id=<%= Player.find(@era[i][1]).id %>"><%= Player.find(@era[i][1]).name %></a></td>
-              <td><%= @era[i][0] %></td>
+              <td><%= '%1.2f' % @era[i][0] %></td>
             </tr>
           <% end %> 
         </tbody>
@@ -455,7 +455,7 @@
             <tr>
               <td><%= i + 1 %></td>
               <td><a href="/statistics/player?player_id=<%= Player.find(@whip[i][1]).id %>"><%= Player.find(@whip[i][1]).name %></a></td>
-              <td><%= @whip[i][0] %></td>
+              <td><%= '%1.2f' % @whip[i][0] %></td>
             </tr>
           <% end %> 
         </tbody>
