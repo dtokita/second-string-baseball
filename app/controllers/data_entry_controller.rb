@@ -179,6 +179,7 @@ class DataEntryController < ApplicationController
       @statline.hits = params[:hits]
       @statline.ers = params[:ers]
       @statline.runs = params[:runs]
+      @statline.walks = params[:walks]
       @statline.strikeouts = params[:strikeouts]
 
       if params[:win] == "on"
@@ -213,6 +214,7 @@ class DataEntryController < ApplicationController
       @statline.hits = params[:hits]
       @statline.ers = params[:ers]
       @statline.runs = params[:runs]
+      @statline.walks = params[:walks]
       @statline.strikeouts = params[:strikeouts]
 
       if params[:win] == "on"
